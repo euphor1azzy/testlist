@@ -18,8 +18,7 @@ export default {
   name:'Login',
   methods:{
      login(){
-       
-     }
+            }
   },
  
   data() {
@@ -35,20 +34,19 @@ export default {
 
 <style>
 .logwrap {
-   width: 100%;
+ 
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
- 
-  background-color: rgb(224, 224, 224);
+   background-color: rgb(224, 224, 224);
 }
 .logwrap .logform {
   padding:20px 30px;
   border: 2px solid #ffffff;
   border-radius: 4px;
-  width: 40%;
-  height: 35%;
+  width:400px;
+ 
   background-color: #fff;
 }
 </style>
