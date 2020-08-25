@@ -9,9 +9,8 @@
     </el-breadcrumb>
 
     <!-- 搜索 -->
-  
     <el-row class="searchC">
-      <el-col style="display:inline-block">
+      <el-col>
         <el-input placeholder="请输入内容" v-model="query" class="inputSearch">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
@@ -55,7 +54,7 @@ created() {
 
 <style>
 .box-card {
-  height: 100vh;
+  height: 100%;
   width: calc(100% - 200px);
 }
 .inputSearch {

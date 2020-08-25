@@ -9,15 +9,15 @@
     </el-breadcrumb>
 
     <!-- 搜索 -->
-  
-    <el-row class="searchC">
-      <el-col style="display:inline-block">
+    <div><el-row class="searchC">
+      <el-col>
         <el-input placeholder="请输入内容" v-model="query" class="inputSearch">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
         <el-button type="success">添加用户</el-button>
       </el-col>
-    </el-row>
+    </el-row></div>
+    
     <!-- 表格 -->
     <el-table :data="items">
       <el-table-column prop="id" label="ID" width="140"></el-table-column>
