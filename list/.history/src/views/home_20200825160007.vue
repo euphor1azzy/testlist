@@ -1,6 +1,6 @@
 <template>
  
-  <div class="con">
+  <div>
     <!-- 头部 -->
     <v-appnav></v-appnav>
      <!-- 侧边栏 -->
@@ -36,7 +36,7 @@ export default {
 
 <style>
 .con {
-  /* height: 100%; */
+  height: 100%;
   display: flex;
   flex: auto;
   flex-flow: row wrap;

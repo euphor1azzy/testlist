@@ -8,7 +8,7 @@
         <el-dropdown-item>删除</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
-    <span>USER</span>
+    <span>{{Logdata.username}}</span>
     <router-link to="/login" style="padding-left:16px;font-size:16px"
       >退出</router-link
     >

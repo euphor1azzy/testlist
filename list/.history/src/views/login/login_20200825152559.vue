@@ -31,14 +31,11 @@ export default {
   },
   methods:{
     //登录请求
-    // handleLogin(){
-    //   this.$http.push('login',this.logdata)
-    //   .then(res=>{
-    //     console.log(res)
-    //   })
-    // }
     handleLogin(){
-      this.$router.push({name: 'Home'})
+      this.$http.post('login',this.logdata)
+      .then(res=>{
+        console.log(res)
+      })
     }
   }
 };

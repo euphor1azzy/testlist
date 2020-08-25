@@ -1,18 +1,15 @@
 <template>
- 
+  <!-- 侧边栏 -->
   <div class="con">
-    <!-- 头部 -->
     <v-appnav></v-appnav>
-     <!-- 侧边栏 -->
-    
     <v-appslider></v-appslider>
 
     <!-- 内容 -->
    <!-- <v-list></v-list> -->
-   <!-- <el-main class="main"> -->
+   <el-main class="main">
      <router-view></router-view>
-   <!-- </el-main> -->
-  
+   </el-main>
+    <router-link></router-link>
   </div>
 </template>
 
@@ -36,7 +33,7 @@ export default {
 
 <style>
 .con {
-  /* height: 100%; */
+  height: 100%;
   display: flex;
   flex: auto;
   flex-flow: row wrap;

@@ -8,7 +8,7 @@
       <el-form-item label="密码">
         <el-input type="password" v-model="logdata.password"></el-input>
       </el-form-item>
-      <el-button style="width:100%" type="primary" @click.prevent="handleLogin">登录</el-button>
+      <el-button style="width:100%" type="primary" @click.="./">登录</el-button>
     </el-form>
   </div>
 </template>
@@ -31,14 +31,11 @@ export default {
   },
   methods:{
     //登录请求
-    // handleLogin(){
-    //   this.$http.push('login',this.logdata)
-    //   .then(res=>{
-    //     console.log(res)
-    //   })
-    // }
     handleLogin(){
-      this.$router.push({name: 'Home'})
+      this.$http.post('login',this.logdata)
+      .then(res=>{
+        console.log(res)
+      })
     }
   }
 };

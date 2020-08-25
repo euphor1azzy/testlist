@@ -1,28 +1,21 @@
 <template>
-   <!-- <el-container style="height: 100%; border: 1px solid #eee"> -->
-      <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-        <el-menu :unique-opened="true"
-        :router="true">
+   <div id="el-container">
+        <el-menu  :default-openeds="['1']" :unique-opened="true">
           <el-submenu index="1">
             <template slot="title">
-              <i class="el-icon-message"></i>用户管理
-            </template>
+              <i class="el-icon-message"></i>用户管理 </template>
             <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="users">用户列表</el-menu-item>
-              <el-menu-item index="1-2">用户设置</el-menu-item>
+              <template slot="title">用户列表</template>
+              <el-menu-item index="1-1">选项1</el-menu-item>
+       
             </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-            </el-submenu>
+            
+            
           </el-submenu>
+
           <el-submenu index="2">
             <template slot="title">
-              <i class="el-icon-menu"></i>导航二
+              <i class="el-icon-menu"></i>权限管理
             </template>
             <el-menu-item-group>
               <template slot="title">分组一</template>
@@ -32,11 +25,10 @@
             <el-menu-item-group title="分组2">
               <el-menu-item index="2-3">选项3</el-menu-item>
             </el-menu-item-group>
-            <el-submenu index="2-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-            </el-submenu>
+       
           </el-submenu>
+
+
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-setting"></i>导航三
@@ -55,8 +47,7 @@
             </el-submenu>
           </el-submenu>
         </el-menu>
-      </el-aside>
-   <!-- </el-container> -->
+      </div>
 </template>
 
 <script>
@@ -66,5 +57,15 @@ export default {
 </script>
 
 <style>
-
+#el-container{
+height: 90vh;
+ border: 1px solid #eee;
+  width:200px;
+      display: flex;
+    flex-direction: row;
+    flex: 0;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+}
 </style>

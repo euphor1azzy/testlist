@@ -38,7 +38,7 @@ export default {
     //   })
     // }
     handleLogin(){
-      this.$router.push({name: 'Home'})
+      this.$router.to(name='Home')
     }
   }
 };

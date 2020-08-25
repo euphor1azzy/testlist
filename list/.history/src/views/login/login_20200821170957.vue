@@ -31,22 +31,16 @@ export default {
   },
   methods:{
     //登录请求
-    // handleLogin(){
-    //   this.$http.push('login',this.logdata)
-    //   .then(res=>{
-    //     console.log(res)
-    //   })
-    // }
     handleLogin(){
-      this.$router.push({name: 'Home'})
+     this.$router.push({name:'home'})
+      }
     }
   }
-};
+;
 </script>
 
 <style>
 .logwrap {
- 
   height: 100%;
   display: flex;
   justify-content: center;

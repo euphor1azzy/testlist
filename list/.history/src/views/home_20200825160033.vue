@@ -36,7 +36,7 @@ export default {
 
 <style>
 .con {
-  /* height: 100%; */
+  height: 100%;
   display: flex;
   flex: auto;
   flex-flow: row wrap;
