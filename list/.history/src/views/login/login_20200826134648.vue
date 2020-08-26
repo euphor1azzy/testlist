@@ -1,6 +1,6 @@
 <template>
   <div class="logwrap">
-    <el-form class="logform" :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-position="top" label-width="80px" >
+    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-position="top" label-width="80px" >
  <h1 style="text-align:center;font-size:30px">登录页面</h1>
   <el-form-item label="用户名" prop="username">
     <el-input type="text" v-model="ruleForm.username" autocomplete="off"></el-input>
@@ -22,28 +22,25 @@
 export default {
   name:'Login',
   data() {
-    var validateUsername = (rule, value, callback) => {
-            let reg = /^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$/
+      var validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        } else {
+          if (this.ruleForm.checkPass !== '') {
+            this.$refs.ruleForm.validateField('checkPass');
+          }
+          callback();
+        }
+      };
+      var validateUsername = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入用户名'));
-        } else if (!reg.test(value)) {
-          callback(new Error('用户名格式不正确'));
+        } else if (value !== this.ruleForm.pass) {
+          callback(new Error('两次输入密码不一致!'));
         } else {
           callback();
         }
       };
-
-      var validatePass = (rule, value, callback) => {
-          let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/
-        if (value === '') {
-          callback(new Error('请输入密码'));
-        } else if (!reg.test(value)) {
-          callback(new Error('密码密码至少包含 数字和英文，长度6-20'));
-        } else {
-          callback();
-      }
-      };
-      
         return {
         ruleForm: {
           pass: '',
