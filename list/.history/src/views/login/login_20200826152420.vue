@@ -10,10 +10,9 @@
       label-width="80px"
     >
       <h1 style="text-align:center;font-size:30px">登录页面</h1>
-      <!-- 登录注册 -->
-      <!-- <ul  style="text-align:center;font-size:30px;text-decoration:none">
+      <ul  style="text-align:center;font-size:30px;text-decoration:none">
         <li v-for="item in menuTab" :key="item.id" :class="current" @click="toggleMenuTab">{{item.txt}}</li>
-      </ul> -->
+      </ul>
       <el-form-item label="用户名" prop="username">
         <el-input
           type="text"
@@ -29,7 +28,7 @@
         ></el-input>
       </el-form-item>
 
-      <el-form-item label="确认密码" prop="checkPassword" v-show="moduel === 'rigester'">
+      <el-form-item label="确认密码" prop="checkPassword" v-show="moduel === register">
         <el-input
           type="password"
           v-model="ruleForm.checkPassword"
@@ -85,12 +84,12 @@ export default {
     var validatecheckPassword = (rule, value, callback) => {
        let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
       //过滤密码
-      this.ruleForm.password = stripScript(value);
-      value = this.ruleForm.password;
-            if (value === "") {
+      this.ruleForm.checkPassword = stripScript(value);
+      value = this.ruleForm.checkPassword;
+      if (value === "") {
         callback(new Error("请输入密码"));
-      } else if (value != this.ruleForm.password ) {
-        callback(new Error("密码不同"));
+      } else if ( != this.ruleForm.password ) {
+        callback(new Error("密码至少包含数字和英文，长度6-20"));
       } else {
         callback();
       }
@@ -99,7 +98,7 @@ export default {
     return {
       menuTab:[
         {txt:"登录" ,current:true ,type:'login'   },
-        {txt:"注册" ,current:false ,type:'rigester' }
+        {txt:"注册" ,current:false ,type:'rigerter' }
         ],
         moduel:'login',
       ruleForm: {
@@ -110,18 +109,10 @@ export default {
       rules: {
         username: [{ validator: validateUsername, trigger: "blur" }],
         password: [{ validator: validatePassword, trigger: "blur" }],
-        checkPassword: [{ validator: validatecheckPassword, trigger: "blur" }],
       },
     };
   },
   methods: {
-       toggleMenuTab(data){
-      this.menuTab.forEach((elem,index) =>{
-        elem.current = false
-      });
-      data.current = true
-      this.moduel = data.type
-    },
     submitForm(ruleForm) {
       this.$refs[ruleForm].validate((valid) => {
         if (valid) {
@@ -132,7 +123,6 @@ export default {
         }
       });
     },
- 
     //     this.$router.push({name: 'Home'}
   },
 };
@@ -166,10 +156,5 @@ export default {
   width: 400px;
 
   background-color: #fff;
-}
-.current{
-  color: antiquewhite;
-  font-weight: 700;
-  font-size: 32px;
 }
 </style>

@@ -29,7 +29,7 @@
         ></el-input>
       </el-form-item>
 
-      <el-form-item label="确认密码" prop="checkPassword" v-show="moduel === 'rigester'">
+      <el-form-item label="确认密码" prop="checkPassword" v-show="moduel === 'login'">
         <el-input
           type="password"
           v-model="ruleForm.checkPassword"

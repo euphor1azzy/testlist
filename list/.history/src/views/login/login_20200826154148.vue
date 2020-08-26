@@ -9,11 +9,10 @@
       label-position="top"
       label-width="80px"
     >
-      <h1 style="text-align:center;font-size:30px">登录页面</h1>
-      <!-- 登录注册 -->
-      <!-- <ul  style="text-align:center;font-size:30px;text-decoration:none">
+      <!-- <h1 style="text-align:center;font-size:30px">登录页面</h1> -->
+      <ul  style="text-align:center;font-size:30px;text-decoration:none">
         <li v-for="item in menuTab" :key="item.id" :class="current" @click="toggleMenuTab">{{item.txt}}</li>
-      </ul> -->
+      </ul>
       <el-form-item label="用户名" prop="username">
         <el-input
           type="text"
@@ -29,7 +28,7 @@
         ></el-input>
       </el-form-item>
 
-      <el-form-item label="确认密码" prop="checkPassword" v-show="moduel === 'rigester'">
+      <el-form-item label="确认密码" prop="checkPassword" v-show="moduel === 'login'">
         <el-input
           type="password"
           v-model="ruleForm.checkPassword"
@@ -85,9 +84,9 @@ export default {
     var validatecheckPassword = (rule, value, callback) => {
        let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
       //过滤密码
-      this.ruleForm.password = stripScript(value);
-      value = this.ruleForm.password;
-            if (value === "") {
+      this.ruleForm.checkPassword = stripScript(value);
+      value = this.ruleForm.checkPassword;
+      if (value === "") {
         callback(new Error("请输入密码"));
       } else if (value != this.ruleForm.password ) {
         callback(new Error("密码不同"));
@@ -110,7 +109,6 @@ export default {
       rules: {
         username: [{ validator: validateUsername, trigger: "blur" }],
         password: [{ validator: validatePassword, trigger: "blur" }],
-        checkPassword: [{ validator: validatecheckPassword, trigger: "blur" }],
       },
     };
   },
