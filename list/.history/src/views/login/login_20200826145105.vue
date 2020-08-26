@@ -39,17 +39,17 @@
 
 <script>
 //引入validate中的正则 过滤函数
-import { stripScript } from "@/utils/validate.js";
+import { stripScript,validaEmail,valPassword } from "@/utils/validate.js";
+
 
 export default {
   name: "Login",
   data() {
     //验证用户名
     var validateUsername = (rule, value, callback) => {
-      let reg = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
-      if (value === "") {
+         if (value === "") {
         callback(new Error("请输入用户名"));
-      } else if (!reg.test(value)) {
+      } else if (validaEmail(value)) {
         callback(new Error("用户名格式不正确"));
       } else {
         callback();
@@ -57,13 +57,12 @@ export default {
     };
     //验证密码
     var validatePassword = (rule, value, callback) => {
-       let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
       //过滤密码
       this.ruleForm.password = stripScript(value);
       value = this.ruleForm.password;
-      if (value === "") {
+         if (value === "") {
         callback(new Error("请输入密码"));
-      } else if (!reg.test(value)) {
+      } else if (!valPassword(value)) {
         callback(new Error("密码至少包含数字和英文，长度6-20"));
       } else {
         callback();
@@ -76,11 +75,16 @@ export default {
         username: "",
       },
       rules: {
-        username: [{ validator: validateUsername, trigger: "blur" }],
-        password: [{ validator: validatePassword, trigger: "blur" }],
-      },
-    };
-  },
+          username: [
+            { validator: validateUsername, trigger: 'blur' }
+          ],
+          password: [
+            { validator: validatePassword, trigger: 'blur' }
+          ],
+          
+        }
+      };
+    },
   methods: {
     submitForm(ruleForm) {
       this.$refs[ruleForm].validate((valid) => {
