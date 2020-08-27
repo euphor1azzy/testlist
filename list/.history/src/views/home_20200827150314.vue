@@ -1,15 +1,13 @@
 <template>
  <el-container class="container">
-  <el-header style="padding:0">
+  <el-header>
     <v-appnav></v-appnav>
   </el-header>
   <el-container>
-    <el-aside style="width:200px" >
+    <el-aside >
       <v-appslider></v-appslider>
     </el-aside>
-    <el-main class="main">
-      <router-view></router-view>
-    </el-main>
+    <el-main class="main">Main</el-main>
   </el-container>
 </el-container>
 </template>
@@ -40,7 +38,6 @@ export default {
 }
 .main{
   height: 100%;
-  background-color: rgb(224, 226, 230);
 }
 /* .con {
   height: 100%;

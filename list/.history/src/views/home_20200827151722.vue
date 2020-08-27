@@ -40,7 +40,7 @@ export default {
 }
 .main{
   height: 100%;
-  background-color: rgb(224, 226, 230);
+  background-color: wheat;
 }
 /* .con {
   height: 100%;

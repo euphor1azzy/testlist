@@ -12,12 +12,9 @@
   
     <el-row class="searchRow">
       <el-col >
-        <el-input 
-        placeholder="请输入内容" 
-        v-model="query" 
-        class="inputSearch">
+        <el-input placeholder="请输入内容" v-model="query" class="inputSearch">
           <el-button slot="append" icon="el-icon-search"></el-button>
-        </el-input>
+                </el-input>
         <el-button  type="success">添加用户</el-button>
      </el-col>
     </el-row>
@@ -62,7 +59,7 @@ created() {
  
 }
 .inputSearch {
-  width: 300px !important;;
+  width: 300px;
 }
 .searchRow{
   margin-top: 20px;

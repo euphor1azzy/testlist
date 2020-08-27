@@ -1,17 +1,19 @@
 <template>
- <el-container class="container">
-  <el-header style="padding:0">
+ 
+  <div class="con">
+    <!-- 头部 -->
     <v-appnav></v-appnav>
-  </el-header>
-  <el-container>
-    <el-aside style="width:200px" >
-      <v-appslider></v-appslider>
-    </el-aside>
-    <el-main class="main">
-      <router-view></router-view>
-    </el-main>
-  </el-container>
-</el-container>
+     <!-- 侧边栏 -->
+    
+    <v-appslider></v-appslider>
+
+    <!-- 内容 -->
+   <!-- <v-list></v-list> -->
+   <!-- <el-main class="main"> -->
+     <router-view></router-view>
+   <!-- </el-main> -->
+  
+  </div>
 </template>
 
 <script>
@@ -33,20 +35,11 @@ export default {
 </script>
 
 <style>
-.container{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.main{
-  height: 100%;
-  background-color: rgb(224, 226, 230);
-}
-/* .con {
+.con {
   height: 100%;
   display: flex;
   flex: auto;
   flex-flow: row wrap;
   justify-content: flex-start;
-} */
+}
 </style>

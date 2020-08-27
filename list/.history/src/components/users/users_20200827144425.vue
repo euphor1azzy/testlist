@@ -10,14 +10,13 @@
 
     <!-- 搜索 -->
   
-    <el-row class="searchRow">
+    <el-row class="searchC">
       <el-col >
-        <el-input 
-        placeholder="请输入内容" 
-        v-model="query" 
-        class="inputSearch">
+        <el-input placeholder="请输入内容" v-model="query" class="inputSearch">
           <el-button slot="append" icon="el-icon-search"></el-button>
-        </el-input>
+                </el-input>
+        
+        
         <el-button  type="success">添加用户</el-button>
      </el-col>
     </el-row>
@@ -62,11 +61,14 @@ created() {
  
 }
 .inputSearch {
-  width: 300px !important;;
+  width: 100px;
 }
-.searchRow{
+.searchC {
   margin-top: 20px;
+   width: 500px;
 }
-
-
+.btn-adduser{
+  margin: 10px;
+  display: inline-flex;
+}
 </style>
